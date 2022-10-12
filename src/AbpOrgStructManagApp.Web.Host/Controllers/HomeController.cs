@@ -15,7 +15,7 @@ namespace AbpOrgStructManagApp.Web.Host.Controllers
 
         public HomeController(INotificationPublisher notificationPublisher)
         {
-            _notificationPublisher = notificationPublisher;
+            _notificationPublisher = notificationPublisher; 
         }
 
         public IActionResult Index()

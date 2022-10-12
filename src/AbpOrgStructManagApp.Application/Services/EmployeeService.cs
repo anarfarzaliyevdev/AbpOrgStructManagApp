@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Services
 {
-   
+    
     public class EmployeeService : IEmployeeService
     {
         private readonly IRepository<Employee> _employeeRepository;
@@ -33,10 +33,11 @@ namespace AbpOrgStructManagApp.Services
 
             return _mapper.Map<CreateEmployeeOutput>(await _employeeRepository.InsertAsync(newEmployee));
         }
-        //[AbpAuthorize("Employee.DeleteDirector")]
-   
+     
+
         public async Task<DeleteEmployeeOutput> DeleteAsync(int entityId)
         {
+
             var extinsingEmployee= await _employeeRepository.GetAsync(entityId);
             
             await _employeeRepository.DeleteAsync(entityId);

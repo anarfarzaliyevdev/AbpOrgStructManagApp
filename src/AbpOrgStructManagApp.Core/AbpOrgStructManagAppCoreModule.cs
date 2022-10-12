@@ -37,11 +37,12 @@ namespace AbpOrgStructManagApp
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
-            Configuration.Authorization.Providers.Add<EmployeeManagementPermissionDefinitionProvider>();
+       
             Configuration.Localization.Languages.Add(new LanguageInfo("fa", "فارسی", "famfamfam-flags ir"));
             
             Configuration.Settings.SettingEncryptionConfiguration.DefaultPassPhrase = AbpOrgStructManagAppConsts.DefaultPassPhrase;
             SimpleStringCipher.DefaultPassPhrase = AbpOrgStructManagAppConsts.DefaultPassPhrase;
+      
         }
 
         public override void Initialize()

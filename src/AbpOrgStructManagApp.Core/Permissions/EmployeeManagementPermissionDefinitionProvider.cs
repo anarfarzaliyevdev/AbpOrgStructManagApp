@@ -14,7 +14,7 @@ namespace AbpOrgStructManagApp.Permissions
             var employee = context.CreatePermission("Employee");
 
             var deleteDirector = employee.CreateChildPermission("Employee.DeleteDirector");
-  
+            
         }
 
     }
