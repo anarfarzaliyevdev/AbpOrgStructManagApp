@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Entities
 {
-    public class Department:Entity,IHasCreationTime
+    public class Department:Entity,IHasCreationTime,ISoftDelete
     {
         public string Name { get; set; }
         public DateTime CreationTime { get; set ; }
         public virtual List<Employee> Employees { get; set; }
+        public bool IsDeleted { get ; set; }
     }
 }

@@ -21,15 +21,15 @@ namespace AbpOrgStructManagApp.DTOs
         public string Surname { get; set; }
         [Required]
         public DateTime BirthDate { get; set; }
-
+        public int? DependId { get; set; }
         public void AddValidationErrors(CustomValidationContext context)
         {
-            DateTime Now = DateTime.Now;
-            int years = new DateTime(DateTime.Now.Subtract(BirthDate).Ticks).Year - 1;
-            if (years<18)
-            {
-                context.Results.Add(new ValidationResult("Employee age must be greater than 18!"));
-            }
+            //DateTime Now = DateTime.Now;
+            //int years = new DateTime(DateTime.Now.Subtract(BirthDate).Ticks).Year - 1;
+            //if (years<18)
+            //{
+            //    context.Results.Add(new ValidationResult("Employee age must be greater than 18!"));
+            //}
         }
     }
 }

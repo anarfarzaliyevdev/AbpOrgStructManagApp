@@ -37,6 +37,7 @@ namespace AbpOrgStructManagApp.Authorization.Accounts
 
         public async Task<RegisterOutput> Register(RegisterInput input)
         {
+            
             var user = await _userRegistrationManager.RegisterAsync(
                 input.Name,
                 input.Surname,

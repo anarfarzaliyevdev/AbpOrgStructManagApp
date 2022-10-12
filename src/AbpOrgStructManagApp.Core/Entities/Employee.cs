@@ -21,6 +21,8 @@ namespace AbpOrgStructManagApp.Entities
         public long? LastModifierUserId { get ; set; }
         public long? DeleterUserId { get ; set ; }
         public int? DepartmentId { get; set; }
+        public int? DependId { get; set; }
+        public string EmployeeType { get; set; }
         public virtual Department Department { get; set; }
     }
 }

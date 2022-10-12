@@ -1,4 +1,5 @@
-﻿using Abp.Localization;
+﻿using Abp.Authorization;
+using Abp.Localization;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Runtime.Security;
@@ -10,6 +11,7 @@ using AbpOrgStructManagApp.Authorization.Users;
 using AbpOrgStructManagApp.Configuration;
 using AbpOrgStructManagApp.Localization;
 using AbpOrgStructManagApp.MultiTenancy;
+using AbpOrgStructManagApp.Permissions;
 using AbpOrgStructManagApp.Timing;
 
 namespace AbpOrgStructManagApp
@@ -35,7 +37,7 @@ namespace AbpOrgStructManagApp
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
-            
+            Configuration.Authorization.Providers.Add<EmployeeManagementPermissionDefinitionProvider>();
             Configuration.Localization.Languages.Add(new LanguageInfo("fa", "فارسی", "famfamfam-flags ir"));
             
             Configuration.Settings.SettingEncryptionConfiguration.DefaultPassPhrase = AbpOrgStructManagAppConsts.DefaultPassPhrase;

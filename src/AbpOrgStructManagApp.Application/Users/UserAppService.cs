@@ -55,25 +55,34 @@ namespace AbpOrgStructManagApp.Users
 
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {
-            CheckCreatePermission();
-
-            var user = ObjectMapper.Map<User>(input);
-
-            user.TenantId = AbpSession.TenantId;
-            user.IsEmailConfirmed = true;
-
-            await _userManager.InitializeOptionsAsync(AbpSession.TenantId);
-
-            CheckErrors(await _userManager.CreateAsync(user, input.Password));
-
-            if (input.RoleNames != null)
+            try
             {
-                CheckErrors(await _userManager.SetRolesAsync(user, input.RoleNames));
+                CheckCreatePermission();
+
+                var user = ObjectMapper.Map<User>(input);
+
+                user.TenantId = AbpSession.TenantId;
+                user.IsEmailConfirmed = true;
+
+                await _userManager.InitializeOptionsAsync(AbpSession.TenantId);
+
+                CheckErrors(await _userManager.CreateAsync(user, input.Password));
+
+                if (input.RoleNames != null)
+                {
+                    CheckErrors(await _userManager.SetRolesAsync(user, input.RoleNames));
+                }
+
+                CurrentUnitOfWork.SaveChanges();
+
+                return MapToEntityDto(user);
             }
+            catch (Exception e)
+            {
 
-            CurrentUnitOfWork.SaveChanges();
-
-            return MapToEntityDto(user);
+                throw;
+            }
+            
         }
 
         public override async Task<UserDto> UpdateAsync(UserDto input)
