@@ -13,5 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbpOrgStructManagApp.Core\AbpOrgStructManagApp.Core.csproj" />
+    <ProjectReference Include="..\AbpOrgStructManagApp.EntityFrameworkCore\AbpOrgStructManagApp.EntityFrameworkCore.csproj" />
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace AbpOrgStructManagApp.Services
 {
     public interface IManageEmployeeService:IApplicationService
     {
-        Task<List<Employee>> GetAllDependentEmployees(int employeeId);
+        Task<List<EmployeeTreeOutput>> GetAllDependentEmployees(int empId);
         Task<List<EmployeeManagerLevelOutput>> GetAllEmployeesWithManagerLevels(int employeeId);
     }
 }

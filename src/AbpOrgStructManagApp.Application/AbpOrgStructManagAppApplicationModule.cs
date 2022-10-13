@@ -1,7 +1,9 @@
 ﻿using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Modules;
+using Abp.MultiTenancy;
 using Abp.Reflection.Extensions;
+using Abp.Zero.Configuration;
 using AbpOrgStructManagApp.Authorization;
 using AbpOrgStructManagApp.Permissions;
 
@@ -14,9 +16,9 @@ namespace AbpOrgStructManagApp
     {
         public override void PreInitialize()
         {
-            Configuration.Authorization.Providers.Add<EmployeeManagementPermissionDefinitionProvider>();
+         
             Configuration.Authorization.Providers.Add<AbpOrgStructManagAppAuthorizationProvider>();
-   
+           
         }
 
         public override void Initialize()

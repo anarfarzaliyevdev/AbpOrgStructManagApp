@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using Abp.Organizations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,6 @@ namespace AbpOrgStructManagApp.Entities
         public int? DependId { get; set; }
         public string EmployeeType { get; set; }
         public virtual Department Department { get; set; }
+       
     }
 }

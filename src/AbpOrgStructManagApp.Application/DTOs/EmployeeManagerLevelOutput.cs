@@ -14,5 +14,6 @@ namespace AbpOrgStructManagApp.DTOs
         public string Name { get; set; }
         public string Surname { get; set; }
         public string ManagerLevel { get; set; }
+        public string EmployeeType { get; set; }
     }
 }
