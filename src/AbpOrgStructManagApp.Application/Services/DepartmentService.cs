@@ -19,14 +19,10 @@ namespace AbpOrgStructManagApp.Services
         }
         public async Task<List<Department>> GetAllAsync()
         {
-
-
            return await _departmentRepository.GetAllListAsync();
         }
         public async Task DeleteAsync(int entityId)
         {
-
-
              await _departmentRepository.DeleteAsync(entityId); ;
         }
     }

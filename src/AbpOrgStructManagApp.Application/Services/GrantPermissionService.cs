@@ -11,27 +11,21 @@ namespace AbpOrgStructManagApp.Services
 {
     public class GrantPermissionService : IGrantPermissionService
     {
-        private readonly IPermissionManager permissionManager;
-        private readonly UserManager userManager;
-        private readonly IAuthorizationService authorizationService;
-
-        public GrantPermissionService(IPermissionManager permissionManager,UserManager userManager,IAuthorizationService authorizationService)
+        private readonly IPermissionManager _permissionManager;
+        private readonly UserManager _userManager;
+        public GrantPermissionService(IPermissionManager permissionManager,UserManager userManager)
         {
-            this.permissionManager = permissionManager;
-            this.userManager = userManager;
-            this.authorizationService = authorizationService;
+            _permissionManager = permissionManager;
+            _userManager = userManager;
         }
         public async Task GrantUserPermissionAsync(int userId, string permission)
         {
-            
-            User currentUser = userManager.GetUserById(userId);
-            var exisitngPemission = permissionManager.GetPermissionOrNull(permission);
+            User currentUser = _userManager.GetUserById(userId);
+            var exisitngPemission = _permissionManager.GetPermissionOrNull(permission);
             if (exisitngPemission != null)
             {
-                await userManager.GrantPermissionAsync(currentUser, exisitngPemission);
+                await _userManager.GrantPermissionAsync(currentUser, exisitngPemission);
             }
-           
-
         }
     }
 }

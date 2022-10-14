@@ -13,7 +13,7 @@ namespace AbpOrgStructManagApp.Services
     {
         Task<CreateEmployeeOutput> CreateAsync(CreateEmployeeInput input);
         Task<UpdateEmployeeOutput> UpdateAsync(UpdateEmployeeInput input);
-        Task<DeleteEmployeeOutput> DeleteAsync(int entityId);
+        Task DeleteAsync(int entityId);
         Task<GetEmployeeOutput> GetByIdAsync(int entityId);
        
     }

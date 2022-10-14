@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace AbpOrgStructManagApp.DTOs
 {
     [AutoMapTo(typeof(Employee))]
-    public class UpdateEmployeeInput
+    public class UpdateEmployeeInput : EntityDto
     {
         public string Name { get; set; }
         public string Surname { get; set; }

@@ -14,7 +14,6 @@ namespace AbpOrgStructManagApp.EntityFrameworkCore
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public virtual DbSet<GetEmployeeTreeOutputSp> GetEmployeeTreeOutputSps { get; set; }
-
         public virtual DbSet<GetEmployeeTreeManagersWithLevelsSp> GetEmployeeTreeManagersWithLevelsSps { get; set; }
         public AbpOrgStructManagAppDbContext(DbContextOptions<AbpOrgStructManagAppDbContext> options)
             : base(options)
