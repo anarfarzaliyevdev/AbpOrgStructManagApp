@@ -30,24 +30,47 @@ namespace AbpOrgStructManagApp.Services
 
         public ManageEmployeeService(IDbContextProvider<AbpOrgStructManagAppDbContext> dbContextProvider)
         {
-        
+
             this.dbContextProvider = dbContextProvider;
         }
         [HttpGet("GetAllDependentEmployees/{employeeId}")]
         public async Task<List<GetEmployeeTreeOutputSp>> GetAllDependentEmployees(int employeeId)
         {
+            //first way of getting data 
 
+            //var employeeTreeOutputs = await dbContextProvider.GetDbContext()
+            //    .GetEmployeeTreeOutputSps.FromSqlInterpolated($"exec [dbo].[GetEmployeeTree] @EmpId={employeeId}").ToListAsync();
+            // second way of getting data
+            var parameter = new SqlParameter()
+            {
+                ParameterName = "@EmpId",
+                SqlDbType = System.Data.SqlDbType.Int,
+                Direction = System.Data.ParameterDirection.Input,
+                Value = employeeId
+            };
             var employeeTreeOutputs = await dbContextProvider.GetDbContext()
-                .GetEmployeeTreeOutputSps.FromSqlInterpolated($"exec [dbo].[GetEmployeeTree] @EmpId={employeeId}").ToListAsync();
+               .GetEmployeeTreeOutputSps.FromSqlRaw("exec [dbo].[GetEmployeeTree] @EmpId", parameter).ToListAsync();
 
             return employeeTreeOutputs;
         }
         [HttpGet("GetAllEmployeesWithManagerLevels/{empId}")]
         public async Task<List<GetEmployeeTreeManagersWithLevelsSp>> GetAllEmployeesWithManagerLevels(int empId)
         {
+            //first way of getting data 
 
+            //var employeeTreeOutputs = await dbContextProvider.GetDbContext()
+            //    .GetEmployeeTreeManagersWithLevelsSps.FromSqlInterpolated($"exec [dbo].[GetEmployeeManagersWithLevels] @EmpId={empId}").ToListAsync();
+            // second way of getting data
+            var parameter = new SqlParameter()
+            {
+                ParameterName = "@EmpId",
+                SqlDbType = System.Data.SqlDbType.Int,
+                Direction = System.Data.ParameterDirection.Input,
+                Value = empId
+            };
             var employeeTreeOutputs = await dbContextProvider.GetDbContext()
-                .GetEmployeeTreeManagersWithLevelsSps.FromSqlInterpolated($"exec [dbo].[GetEmployeeManagersWithLevels] @EmpId={empId}").ToListAsync();
+               .GetEmployeeTreeManagersWithLevelsSps.FromSqlRaw("exec [dbo].[GetEmployeeManagersWithLevels] @EmpId", parameter).ToListAsync();
+
             return employeeTreeOutputs;
 
         }
