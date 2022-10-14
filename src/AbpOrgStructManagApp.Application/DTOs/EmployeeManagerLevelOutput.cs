@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using Abp.Domain.Entities;
 using AbpOrgStructManagApp.Entities;
 using System;
 using System.Collections.Generic;

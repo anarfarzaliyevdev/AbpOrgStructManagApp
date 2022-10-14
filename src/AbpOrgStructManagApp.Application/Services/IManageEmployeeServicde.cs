@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services;
 using AbpOrgStructManagApp.DTOs;
 using AbpOrgStructManagApp.Entities;
+using AbpOrgStructManagApp.EntityFrameworkCore.SPModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace AbpOrgStructManagApp.Services
 {
     public interface IManageEmployeeService:IApplicationService
     {
-        Task<List<EmployeeTreeOutput>> GetAllDependentEmployees(int empId);
-        Task<List<EmployeeManagerLevelOutput>> GetAllEmployeesWithManagerLevels(int employeeId);
+        Task<List<GetEmployeeTreeOutputSp>> GetAllDependentEmployees(int empId);
+        Task<List<GetEmployeeTreeManagersWithLevelsSp>> GetAllEmployeesWithManagerLevels(int employeeId);
     }
 }
