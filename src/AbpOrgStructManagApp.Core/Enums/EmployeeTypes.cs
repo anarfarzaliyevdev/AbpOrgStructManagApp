@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Enums
 {
-    public  enum EmployeeTypes
+    public enum EmployeeTypes
     {
         Director,
         Manager,

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Services
 {
-    public class GrantPermissionService : IGrantPermissionService
+    public class GrantPermissionService : AbpOrgStructManagAppAppServiceBase
     {
         private readonly IPermissionManager _permissionManager;
         private readonly UserManager _userManager;

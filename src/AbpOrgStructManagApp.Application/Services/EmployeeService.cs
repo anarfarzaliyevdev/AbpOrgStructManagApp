@@ -1,24 +1,17 @@
 ﻿using Abp.Authorization;
 using Abp.Domain.Repositories;
 using AbpOrgStructManagApp.Authorization;
-using AbpOrgStructManagApp.Authorization.Users;
 using AbpOrgStructManagApp.DTOs;
 using AbpOrgStructManagApp.Entities;
 using AbpOrgStructManagApp.Enums;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Services
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : AbpOrgStructManagAppAppServiceBase
     {
         private readonly IRepository<Employee> _employeeRepository;
         private readonly IDepartmentService _departmentService;

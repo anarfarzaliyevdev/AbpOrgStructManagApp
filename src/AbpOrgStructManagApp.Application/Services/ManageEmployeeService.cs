@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Services
 {
-    public class ManageEmployeeService : IManageEmployeeService
+    public class ManageEmployeeService : AbpOrgStructManagAppAppServiceBase
     {
         private readonly IDbContextProvider<AbpOrgStructManagAppDbContext> _dbContextProvider;
 

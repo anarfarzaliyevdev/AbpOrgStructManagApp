@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AbpOrgStructManagApp.Services
 {
-    public class DepartmentService : IDepartmentService
+    public class DepartmentService : AbpOrgStructManagAppAppServiceBase
     {
         private readonly IRepository<Department> _departmentRepository;
 
